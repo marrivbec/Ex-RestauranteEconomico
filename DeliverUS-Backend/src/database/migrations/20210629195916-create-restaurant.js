@@ -18,6 +18,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      isEconomic: {
+        defaultValue: false,
+        type: Sequelize.BOOLEAN
+      },
       postalCode: {
         allowNull: false,
         type: Sequelize.STRING

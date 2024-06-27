@@ -35,6 +35,15 @@ export default function RestaurantsScreen ({ navigation, route }) {
           navigation.navigate('RestaurantDetailScreen', { id: item.id })
         }}
       >
+        <View style={{ flexDirection: 'row', justifyContent: 'right', alignItems: 'flex-end' }} >
+            {item.isEconomic &&
+                <TextRegular textStyle={[styles.badge, { color: GlobalStyles.brandSuccess, borderColor: GlobalStyles.brandSuccess }] }>€</TextRegular>
+            }
+            {!item.isEconomic &&
+            <TextRegular textStyle={[styles.badge, { color: GlobalStyles.brandPrimary, borderColor: GlobalStyles.brandPrimary }] }>€€</TextRegular>
+            }
+        </View>
+
         <TextRegular numberOfLines={2}>{item.description}</TextRegular>
         {item.averageServiceMinutes !== null &&
           <TextSemiBold>Avg. service time: <TextSemiBold textStyle={{ color: GlobalStyles.brandPrimary }}>{item.averageServiceMinutes} min.</TextSemiBold></TextSemiBold>
